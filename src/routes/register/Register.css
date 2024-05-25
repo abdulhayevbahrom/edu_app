@@ -1,0 +1,50 @@
+.register {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.register_caption {
+  font-weight: normal;
+  margin: 25px 0;
+  font-size: 25px;
+}
+
+.register_form {
+  width: 370px;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+  padding: 20px;
+  box-shadow: 0 0 10px 3px #ddd;
+  border-radius: 15px;
+  padding-bottom: 40px;
+}
+
+.register_form input {
+  outline: none;
+  border: 1px solid #ddd;
+  width: 100%;
+  background-color: #fafafa;
+  height: 33px;
+  margin: 2% 0;
+  text-indent: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.register_form input::placeholder {
+  color: rgb(168, 168, 168);
+}
+
+.register_form input[type="submit"] {
+  background-color: dodgerblue;
+  cursor: pointer;
+  border: none;
+}
