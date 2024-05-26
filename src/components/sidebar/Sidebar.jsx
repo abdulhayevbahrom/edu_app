@@ -10,6 +10,7 @@ function Sidebar() {
         <NavLink to={"/admin"}>E'lon qo'shish</NavLink>
         <NavLink to={"/admin/all-products"}>E'lonlar</NavLink>
         <NavLink to={"/admin/control-products"}>E'lon boshqaruvi</NavLink>
+        <NavLink to={"/admin/users"}>Foydalanuvchilar</NavLink>
       </div>
     </div>
   );

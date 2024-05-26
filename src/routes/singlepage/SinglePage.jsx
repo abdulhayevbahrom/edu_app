@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import axios from "../../api";
 import Loader from "../../components/loader/Loader";
 import Footer from "../../components/footer/Footer";
+import { capitalizeFirstLetter } from "../../hooks/CapitalizeFirstLitter";
+import { PhoneNumberFormat, NumberFormat } from "../../hooks/NumberFormat";
 
 function SinglePage() {
   const { id } = useParams();
@@ -54,13 +56,16 @@ function SinglePage() {
               </div>
             </div>
             <div className="right">
-              <h2>{product?.title}</h2>
+              <h2>{capitalizeFirstLetter(product?.title)}</h2>
               <p className="desc">{product?.description}</p>
               <p>Manzil: {product?.location}</p>
-              <p>Telefon: {product?.phoneNumber}</p>
+              <p>
+                Telefon: +998{" "}
+                {PhoneNumberFormat(product?.phoneNumber.toString())}
+              </p>
               <p>Mavjud kurslar: {product?.categories} </p>
               <p>
-                Kurslar narxi: <span>{product?.price} </span> So'm
+                Kurslar narxi: <span>{NumberFormat(product?.price)} </span> So'm
               </p>
             </div>
           </>

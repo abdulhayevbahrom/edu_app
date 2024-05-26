@@ -40,6 +40,7 @@ function AddProduct() {
     axios
       .post("/products", formData)
       .then((res) => {
+        console.log(res);
         if (res.data.state) {
           enqueueSnackbar("E'lon yaratildi", {
             variant: "success",
