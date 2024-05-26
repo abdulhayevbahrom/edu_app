@@ -33,3 +33,10 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 530px) {
+  .loader_container {
+    width: 300px;
+    height: 300px;
+  }
+}

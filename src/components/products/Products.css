@@ -86,6 +86,11 @@
   box-shadow: 0 0 0px 0px #eee;
 }
 
+.products .products_list .list_item:last-child button:last-child {
+  background-color: crimson;
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 1320px) {
   .products .products_list {
     grid-template-columns: repeat(4, 280px);

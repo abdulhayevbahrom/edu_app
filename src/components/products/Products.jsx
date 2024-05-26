@@ -3,6 +3,7 @@ import "./Products.css";
 import { Link, useLocation } from "react-router-dom";
 import axios from "../../api";
 import Loader from "../loader/Loader";
+import { FaEye, FaTrash, FaCheck } from "react-icons/fa";
 
 function Products() {
   const { pathname } = useLocation();
@@ -48,6 +49,22 @@ function Products() {
     }
   };
 
+  // delete products
+
+  const deleteProduct = (id) => {
+    if (window.confirm("E'lonni o'chirmoqchimisiz")) {
+      axios
+        .delete(`/products/${id}`)
+        .then((res) => {
+          console.log(res);
+          if (res.data.state) {
+            setLoad(true);
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
     <div className={path ? "products adminPro" : "products"}>
       {!path && <h1 className="caption">E'lonlar</h1>}
@@ -60,11 +77,19 @@ function Products() {
               <img src={product.images[0]} alt="" />
               <h3>{product.title}</h3>
               <p>{product.description}</p>
-              <Link to={`/edu/${product._id}`}> Batafsil </Link>
+              <Link to={`/edu/${product._id}`}>
+                {control ? <FaEye /> : "Batafsil"}
+              </Link>
               {control && (
-                <button onClick={() => activedProduct(product)}>
-                  Aktiv qilish
-                </button>
+                <>
+                  <button onClick={() => activedProduct(product)}>
+                    {" "}
+                    <FaCheck />{" "}
+                  </button>
+                  <button onClick={() => deleteProduct(product._id)}>
+                    <FaTrash />
+                  </button>
+                </>
               )}
             </div>
           ))}
