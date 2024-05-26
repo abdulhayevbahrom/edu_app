@@ -78,6 +78,11 @@
     height: auto;
     grid-template-columns: repeat(1, 90%);
     gap: 20px;
+    background-color: pink;
+  }
+
+  .singlePage .left {
+    height: 300px;
   }
 
   .singlePage .left figure {
