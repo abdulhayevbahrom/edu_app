@@ -27,7 +27,6 @@ function Register() {
         }
       })
       .catch((err) => {
-        console.log(err);
         enqueueSnackbar(err.response.data.msg, {
           variant: "warning",
         });
@@ -40,8 +39,8 @@ function Register() {
         <h1 className="register_caption">Royxatdan o'tish</h1>
         <input type="text" name="firstname" required placeholder="Ism" />
         <input type="text" name="lastname" required placeholder="Familiya" />
-        <input type="number" name="age" placeholder="yoshi" />
-        <input type="number" name="phoneNumber" placeholder="telefon" />
+        <input type="number" name="age" placeholder="Yosh" />
+        <input type="number" name="phoneNumber" placeholder="Telefon" />
         <input type="text" name="username" required placeholder="Username" />
         <input type="text" name="password" required placeholder="Password" />
         <input type="submit" value="Royxatdan o'tish" />

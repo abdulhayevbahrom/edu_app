@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { enqueueSnackbar as es } from "notistack";
 import axios from "../../api";
 
@@ -51,6 +51,7 @@ const Login = () => {
           required
         />
         <input type="submit" value="Tizimga kirish" />
+        <Link to={"/register"}>Ro'yxatdan o'tish</Link>
       </form>
     </div>
   );

@@ -85,3 +85,70 @@
 .adminPro .products_list .list_item {
   box-shadow: 0 0 0px 0px #eee;
 }
+
+@media screen and (max-width: 1320px) {
+  .products .products_list {
+    grid-template-columns: repeat(4, 280px);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1270px) {
+  .products .products_list {
+    grid-template-columns: repeat(4, 25%);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .products .products_list {
+    grid-template-columns: repeat(3, 33%);
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .products .products_list .list_item {
+    height: 340px;
+  }
+
+  .products .products_list .list_item img {
+    height: 68%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .products .products_list {
+    grid-template-columns: repeat(2, 50%);
+  }
+  .products .products_list .list_item {
+    height: 380px;
+  }
+  .products .products_list .list_item img {
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .products .products_list {
+    gap: 14px;
+  }
+  .products .products_list .list_item {
+    height: 340px;
+  }
+
+  .products .products_list .list_item img {
+    height: 68%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .products .products_list {
+    grid-template-columns: repeat(1, 95%);
+    gap: 20px;
+  }
+  .products .products_list .list_item {
+    height: 380px;
+  }
+  .products .products_list .list_item img {
+    height: 70%;
+  }
+}

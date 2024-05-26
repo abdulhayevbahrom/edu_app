@@ -7,7 +7,7 @@
 
 .footer-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   max-width: 1200px;
@@ -18,6 +18,10 @@
 .footer-logo img {
   width: 150px;
   margin-bottom: 20px;
+}
+
+.footer-logo h1 {
+  font-size: 30px;
 }
 
 .footer-links {
@@ -63,16 +67,19 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .footer-content {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+    flex-direction: column;
+    gap: 30px;
   }
 
   .footer-logo,
   .footer-links,
   .footer-social {
     margin: 0;
+  }
+
+  .footer-logo h1 {
+    font-size: 25px;
   }
 }

@@ -3,6 +3,7 @@ import "./AddProduct.css";
 import axios from "../../api";
 import { enqueueSnackbar } from "notistack";
 import { useLocation } from "react-router-dom";
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 function AddProduct() {
   const { pathname } = useLocation();
@@ -67,9 +68,9 @@ function AddProduct() {
         style={{ width: pathname === "/add-product" && "400px" }}
         onSubmit={handleSubmit}
       >
-        {pathname === "/add-product" && <h2>Add Product</h2>}
+        {pathname === "/add-product" && <h2>E'lon qo'shish</h2>}
         <div className="form-group">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">O'quv markaz nomi</label>
           <input
             type="text"
             id="title"
@@ -80,18 +81,7 @@ function AddProduct() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="price">Price</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={formValues.price}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="location">Location</label>
+          <label htmlFor="location">Manzil</label>
           <input
             type="text"
             id="location"
@@ -100,19 +90,9 @@ function AddProduct() {
             onChange={handleChange}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="images">Images</label>
-          <input
-            type="file"
-            id="images"
-            name="images"
-            multiple
-            accept="image/*"
-            onChange={(e) => setImages(e.target.files)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
+          <label htmlFor="phoneNumber">Telefon</label>
           <input
             type="number"
             id="phoneNumber"
@@ -123,7 +103,7 @@ function AddProduct() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="categories">Categories</label>
+          <label htmlFor="categories">Mavjud kurslar</label>
           <input
             type="text"
             id="categories"
@@ -134,7 +114,18 @@ function AddProduct() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="price">Kurs narxi</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={formValues.price}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Batafsil malumot</label>
           <textarea
             id="description"
             name="description"
@@ -144,7 +135,23 @@ function AddProduct() {
           ></textarea>
         </div>
         <div className="form-group">
-          <button type="submit">{load ? "Loading..." : "Submit"}</button>
+          <label htmlFor="images">
+            <p>
+              Rasm yuklash <FaCloudUploadAlt />{" "}
+            </p>
+          </label>
+          <input
+            type="file"
+            id="images"
+            name="images"
+            multiple
+            accept="image/*"
+            style={{ display: "none" }}
+            onChange={(e) => setImages(e.target.files)}
+          />
+        </div>
+        <div className="form-group">
+          <button type="submit">{load ? "Yuborilmoqda..." : "Yuborish"}</button>
         </div>
       </form>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import "./Footer.css";
 import {
-  FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaTelegram,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -16,18 +16,17 @@ const Footer = () => {
           <h1>LOGO</h1>
         </div>
         <div className="footer-links">
-          <a href="#about">About Us</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-          <a href="#privacy">Privacy Policy</a>
+          <a href="#about">Biz haqimizda</a>
+          <a href="#services">Xizmatlar</a>
+          <a href="#contact">Aloqa</a>
         </div>
         <div className="footer-social">
           <a
-            href="https://www.facebook.com"
+            href="https://t.me/smartbrain_it"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaFacebookF />
+            <FaTelegram />
           </a>
           <a
             href="https://www.twitter.com"
@@ -37,7 +36,7 @@ const Footer = () => {
             <FaTwitter />
           </a>
           <a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/smartbrain.it"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -53,7 +52,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>
+          &copy; {new Date().getFullYear()} SmartBrain Barcha huquqlar
+          himoyalangan.
+        </p>
       </div>
     </footer>
   );
