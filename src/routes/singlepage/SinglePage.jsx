@@ -3,6 +3,7 @@ import "./SinglePage.css";
 import { useParams } from "react-router-dom";
 import axios from "../../api";
 import Loader from "../../components/loader/Loader";
+import Footer from "../../components/footer/Footer";
 
 function SinglePage() {
   const { id } = useParams();
@@ -21,49 +22,52 @@ function SinglePage() {
   }, [id]);
 
   return (
-    <div
-      style={{
-        display: !product ? "flex" : "grid",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-      className="singlePage"
-    >
-      {!product ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="left">
-            <figure>
-              <img src={product?.images[index]} alt="" />
-            </figure>
+    <>
+      <div
+        style={{
+          display: !product ? "flex" : "grid",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        className="singlePage"
+      >
+        {!product ? (
+          <Loader />
+        ) : (
+          <>
+            <div className="left">
+              <figure>
+                <img src={product?.images[index]} alt="" />
+              </figure>
 
-            <div className="imgs">
-              {product?.images?.map((url, index) => (
-                <img
-                  onClick={() => {
-                    setIndex(index);
-                  }}
-                  src={url}
-                  key={index}
-                  alt=""
-                />
-              ))}
+              <div className="imgs">
+                {product?.images?.map((url, index) => (
+                  <img
+                    onClick={() => {
+                      setIndex(index);
+                    }}
+                    src={url}
+                    key={index}
+                    alt=""
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="right">
-            <h2>{product?.title}</h2>
-            <p className="desc">{product?.description}</p>
-            <p>Manzil: {product?.location}</p>
-            <p>Telefon: {product?.phoneNumber}</p>
-            <p>Mavjud kurslar: {product?.categories} </p>
-            <p>
-              Kurslar narxi: <span>{product?.price} </span> So'm
-            </p>
-          </div>
-        </>
-      )}
-    </div>
+            <div className="right">
+              <h2>{product?.title}</h2>
+              <p className="desc">{product?.description}</p>
+              <p>Manzil: {product?.location}</p>
+              <p>Telefon: {product?.phoneNumber}</p>
+              <p>Mavjud kurslar: {product?.categories} </p>
+              <p>
+                Kurslar narxi: <span>{product?.price} </span> So'm
+              </p>
+            </div>
+          </>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 }
 

@@ -71,3 +71,20 @@
   /* font-size: 30px; */
   font-weight: bold;
 }
+
+@media screen and (max-width: 750px) {
+  .singlePage {
+    padding: 20px;
+    height: auto;
+    grid-template-columns: repeat(1, 90%);
+    gap: 20px;
+  }
+
+  .singlePage .left figure {
+    width: 100%;
+  }
+
+  .singlePage .left .imgs {
+    width: 100%;
+  }
+}

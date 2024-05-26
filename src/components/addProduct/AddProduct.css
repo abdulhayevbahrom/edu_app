@@ -80,7 +80,8 @@
   border: none;
   color: #000;
   width: 100%;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px);
+  height: auto;
 }
 
 .extraClass h2 {

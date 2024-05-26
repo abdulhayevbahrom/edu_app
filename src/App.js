@@ -20,10 +20,10 @@ function app() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="edu/:id" element={<SinglePage />} />
         <Route path="/" element={<Home />} />
         <Route element={<Auth />}>
           <Route path="/" element={<Outlet />}>
-            <Route path="edu/:id" element={<SinglePage />} />
             <Route
               path="/admin/*"
               element={user?.role === "admin" ? <Admin /> : <Login />}
