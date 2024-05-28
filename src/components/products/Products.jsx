@@ -8,7 +8,7 @@ import { FaEye, FaTrash, FaCheck } from "react-icons/fa";
 function Products() {
   const { pathname } = useLocation();
   const [products, setPoducts] = useState([]);
-  const [load, setLoad] = useState(false);
+  const [load, setLoad] = useState(true);
 
   let path =
     pathname === "/admin/all-products" ||
@@ -20,6 +20,7 @@ function Products() {
     axios
       .get("/products")
       .then((res) => {
+        console.log(res);
         if (res.data.state) {
           control
             ? setPoducts(
@@ -30,7 +31,8 @@ function Products() {
             : setPoducts(res.data.innerData);
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => setPoducts(err.response.data.innerData))
+      .finally(() => setLoad(false));
   }, [pathname, load]);
 
   const activedProduct = (pro) => {
@@ -68,8 +70,12 @@ function Products() {
   return (
     <div className={path ? "products adminPro" : "products"}>
       {!path && <h1 className="caption">E'lonlar</h1>}
-      {!products.length ? (
+      {load ? (
         <Loader />
+      ) : !products.length ? (
+        <h2 style={{ marginTop: "5%", color: "#444" }}>
+          Hozirda e'lonlar mavjud emas
+        </h2>
       ) : (
         <div className="products_list">
           {products?.reverse()?.map((product, index) => (

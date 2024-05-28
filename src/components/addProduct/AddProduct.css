@@ -75,6 +75,12 @@
   font-size: 16px;
 }
 
+.addProduct form > .form-group .social_wrap,
+.addProduct form > .social .social_wrap {
+  display: flex;
+  gap: 15px;
+}
+
 .extraClass {
   background-color: #fff;
   border: none;
@@ -114,11 +120,20 @@
   color: #444;
 }
 
+.form-group *::placeholder {
+  font-size: 16px;
+}
+
 @media screen and (max-width: 450px) {
   .extraClass {
-    padding: 15px;
+    padding: 0px;
   }
   .extraClass form {
     padding: 15px;
+    box-shadow: 0 0 0 0;
+  }
+
+  .extraClass form h2 {
+    margin-bottom: 30px;
   }
 }

@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-logo">
           {/* <img src="logo.png" alt="Company Logo" /> */}
-          <h1>LOGO</h1>
+          <h1>edu</h1>
         </div>
         <div className="footer-links">
           <a href="#about">Biz haqimizda</a>

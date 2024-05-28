@@ -9,6 +9,13 @@ header {
   color: #fff;
 }
 
+header h1 {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
 header nav {
   display: flex;
   gap: 30px;
@@ -19,11 +26,12 @@ header nav a {
   padding: 7px 15px;
 }
 
-header nav a:nth-child(2),
-header nav a:nth-child(3) {
+header nav a:nth-child(2) > svg,
+header nav a:nth-child(3) > svg {
   border-radius: 3px;
-  color: dodgerblue;
-  background-color: #fff;
+  color: #fff;
+  font-size: 25px;
+  /* background-color: #fff; */
 }
 
 @media screen and (max-width: 800px) {

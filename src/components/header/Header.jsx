@@ -11,8 +11,16 @@ function Header() {
       <h1>Edu</h1>
       <nav>
         <Link to={"/"}>E'lonlar</Link>
-        <Link to="/login">
-          {window.innerWidth > 523 ? "Kirish" : <FaUserCircle />}
+        <Link to={userInfo?.role === "admin" ? "/admin" : "/add-product"}>
+          {window.innerWidth > 523 ? (
+            userInfo ? (
+              <FaUserCircle />
+            ) : (
+              "Kirish"
+            )
+          ) : (
+            <FaUserCircle />
+          )}
         </Link>
         {!userInfo && (
           <Link to="/register">

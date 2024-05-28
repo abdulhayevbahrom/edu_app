@@ -6,6 +6,8 @@ import Loader from "../../components/loader/Loader";
 import Footer from "../../components/footer/Footer";
 import { capitalizeFirstLetter } from "../../hooks/CapitalizeFirstLitter";
 import { PhoneNumberFormat, NumberFormat } from "../../hooks/NumberFormat";
+import { FaFacebook, FaTelegram } from "react-icons/fa";
+import intagram from "./instalogo.jpeg";
 
 function SinglePage() {
   const { id } = useParams();
@@ -56,17 +58,57 @@ function SinglePage() {
               </div>
             </div>
             <div className="right">
-              <h2>{capitalizeFirstLetter(product?.title)}</h2>
-              <p className="desc">{product?.description}</p>
-              <p>Manzil: {product?.location}</p>
-              <p>
-                Telefon: +998{" "}
-                {PhoneNumberFormat(product?.phoneNumber.toString())}
-              </p>
-              <p>Mavjud kurslar: {product?.categories} </p>
-              <p>
-                Kurslar narxi: <span>{NumberFormat(product?.price)} </span> So'm
-              </p>
+              <>
+                <h2>{capitalizeFirstLetter(product?.title)}</h2>
+                <p className="desc">{product?.description}</p>
+                <p>Manzil: {product?.location}</p>
+                <p>
+                  Telefon: +998{" "}
+                  {PhoneNumberFormat(product?.phoneNumber.toString())}
+                </p>
+                <p>Mavjud kurslar: {product?.categories} </p>
+                <p>
+                  Kurslar narxi:
+                  <span>
+                    {NumberFormat(product?.price)} -{" "}
+                    {NumberFormat(product.minPrice)}
+                  </span>{" "}
+                  So'm
+                </p>
+              </>
+
+              <div className="sociall">
+                <span>
+                  Ijtimoiy tarmoqlar: <br />
+                </span>
+                <div className="social_icons">
+                  <a target="_blank" href={`https://t.me/${product.tg}`}>
+                    <FaTelegram />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={`https://instagram.com/${product.inst}`}
+                  >
+                    <img src={intagram} alt="" />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={`https://facebook.com/${product.fb}`}
+                  >
+                    <FaFacebook />
+                  </a>
+                </div>
+              </div>
+
+              <iframe
+                src={product.locationIframe}
+                width="400"
+                height="200"
+                style={{ border: 0 }}
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </>
         )}

@@ -10,10 +10,15 @@ function AddProduct() {
   const [formValues, setFormData] = useState({
     title: "",
     price: "",
+    minPrice: "",
     location: "",
     phoneNumber: "",
     categories: "",
     description: "",
+    tg: "",
+    fb: "",
+    inst: "",
+    locationIframe: "",
   });
   const [images, setImages] = useState("");
   const [load, setLoad] = useState(false);
@@ -25,6 +30,7 @@ function AddProduct() {
 
   const handleSubmit = (e) => {
     setLoad(true);
+
     e.preventDefault();
     let formData = new FormData();
 
@@ -48,10 +54,15 @@ function AddProduct() {
           setFormData({
             title: "",
             price: "",
+            minPrice: "",
             location: "",
             phoneNumber: "",
             categories: "",
             description: "",
+            tg: "",
+            fb: "",
+            inst: "",
+            locationIframe: "",
           });
           setImages("");
           setLoad(false);
@@ -66,7 +77,7 @@ function AddProduct() {
       }
     >
       <form
-        style={{ width: pathname === "/add-product" && "400px" }}
+        style={{ width: pathname === "/add-product" && "100%" }}
         onSubmit={handleSubmit}
       >
         {pathname === "/add-product" && <h2>E'lon qo'shish</h2>}
@@ -83,13 +94,23 @@ function AddProduct() {
         </div>
         <div className="form-group">
           <label htmlFor="location">Manzil</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formValues.location}
-            onChange={handleChange}
-          />
+          <div className="social_wrap">
+            <input
+              type="text"
+              id="location"
+              name="location"
+              value={formValues.location}
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              id="location"
+              name="locationIframe"
+              value={formValues.locationIframe}
+              onChange={handleChange}
+              placeholder="iframe kodi"
+            />
+          </div>
         </div>
 
         <div className="form-group">
@@ -116,14 +137,26 @@ function AddProduct() {
         </div>
         <div className="form-group">
           <label htmlFor="price">Kurs narxi</label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            value={formValues.price}
-            onChange={handleChange}
-            required
-          />
+          <div className="social_wrap">
+            <input
+              type="number"
+              id="price"
+              name="minPrice"
+              value={formValues.minPrice}
+              onChange={handleChange}
+              required
+              placeholder="min:"
+            />
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={formValues.price}
+              onChange={handleChange}
+              required
+              placeholder="max:"
+            />
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="description">Batafsil malumot</label>
@@ -135,6 +168,39 @@ function AddProduct() {
             onChange={handleChange}
           ></textarea>
         </div>
+
+        <div className="form-group social">
+          <label htmlFor="description">
+            Ijtimoiy tarmoqlar : (username kiriting)
+          </label>
+          <div className="social_wrap">
+            <input
+              type="text"
+              id="fb"
+              name="tg"
+              value={formValues.tg}
+              onChange={handleChange}
+              placeholder="Telegram"
+            />
+            <input
+              type="text"
+              id="fb"
+              name="fb"
+              value={formValues.fb}
+              onChange={handleChange}
+              placeholder="Facebook"
+            />
+            <input
+              type="text"
+              id="inst"
+              name="inst"
+              value={formValues.inst}
+              onChange={handleChange}
+              placeholder="Instagram"
+            />
+          </div>
+        </div>
+
         <div className="form-group">
           <label htmlFor="images">
             <p>
